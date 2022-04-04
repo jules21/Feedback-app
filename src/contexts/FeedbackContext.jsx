@@ -13,7 +13,7 @@ export const FeedbackProvider = ({children}) => {
 
 
     const getFeedback = async () => {
-        const response =  await fetch('/feedback');
+        const response =  await fetch('/feedback?_sort=id&_order=desc');
         const feedback = await response.json();
         setFeedback(feedback);
     }
@@ -29,10 +29,26 @@ export const FeedbackProvider = ({children}) => {
             getFeedback();
         }
     }
+    const addFeedback = async (feedback) => {
+        const response = await fetch('/feedback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(feedback)
+        })
+        const AddedFeedback = await response.json()
+        toast('Feedback added successfully',{
+            position: "bottom-right",
+            hideProgressBar: true,
+        })
+        getFeedback();
+    }
 
     return <FeedbackContext.Provider value={{
         feedback,
-        deleteFeedback
+        deleteFeedback,
+        addFeedback
     }}>
         {children}
     </FeedbackContext.Provider>

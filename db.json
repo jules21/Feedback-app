@@ -1,11 +1,6 @@
 {
   "feedback": [
     {
-      "id": "1",
-      "text": "Simple text 1",
-      "rating": 4
-    },
-    {
       "id": "2",
       "text": "Simple text 2",
       "rating": 3
@@ -13,12 +8,12 @@
     {
       "id": "3",
       "text": "Simple text 3",
-      "rating": 2
+      "rating": 4
     },
     {
-      "id": "4",
-      "text": "Simple text 4",
-      "rating": 1
+      "text": "this is 10",
+      "rating": 10,
+      "id": "nLdmROl"
     }
   ]
 }
