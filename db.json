@@ -1,19 +1,24 @@
 {
-    "feedback": [
-        {
-            "id": "1",
-            "text": "simple text 1",
-            "rating": 2
-        },
-        {
-            "id": "2",
-            "text": "simple text 2",
-            "rating": 9
-        },
-        {
-            "id": "3",
-            "text": "simple text 3",
-            "rating": 6
-        }
-    ]
+  "feedback": [
+    {
+      "id": "1",
+      "text": "Simple text 1",
+      "rating": 4
+    },
+    {
+      "id": "2",
+      "text": "Simple text 2",
+      "rating": 3
+    },
+    {
+      "id": "3",
+      "text": "Simple text 3",
+      "rating": 2
+    },
+    {
+      "id": "4",
+      "text": "Simple text 4",
+      "rating": 1
+    }
+  ]
 }

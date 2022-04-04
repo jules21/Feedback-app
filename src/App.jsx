@@ -1,14 +1,19 @@
 import FeedbackList from "./components/FeedbackList";
+import FeedbackStats from "./components/FeedbackStats";
 import Header from "./components/layout/header";
 import { FeedbackProvider } from "./contexts/FeedbackContext";
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App(){
 return (
     <>
         <FeedbackProvider>
         <Header/>
         <div className="container">
+            <FeedbackStats/>
         <FeedbackList/>
         </div>
+        <ToastContainer/>
         </FeedbackProvider>
     </>
 )
