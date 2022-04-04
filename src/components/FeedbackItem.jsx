@@ -4,7 +4,7 @@ import {FaTimes, FaPencilAlt} from 'react-icons/fa'
 import FeedbackContext from '../contexts/FeedbackContext'
 
 function FeedbackItem({item}) {
-    const {deleteFeedback} = useContext(FeedbackContext)
+    const {deleteFeedback,editFeedback} = useContext(FeedbackContext)
   return (
       <Card>
           <p className="num-display">{item.rating}</p>
@@ -12,7 +12,7 @@ function FeedbackItem({item}) {
           <button className='close' onClick={() =>deleteFeedback(item.id)}>
               <FaTimes color='purple'/>
           </button>
-          <button className='edit'>
+          <button className='edit' onClick={()=>editFeedback(item)}>
               <FaPencilAlt color='purple'/>
           </button>
       </Card>

@@ -6,6 +6,10 @@ const FeedbackContext = createContext();
 export const FeedbackProvider = ({children}) => {
 
     const [feedback, setFeedback] = useState([]);
+    const [feedbackToEdit, setFeedbackToEdit] = useState({
+        item:{},
+        edit:false
+    });
     
     useEffect(() => {
         getFeedback();
@@ -44,11 +48,27 @@ export const FeedbackProvider = ({children}) => {
         })
         getFeedback();
     }
-
+    const editFeedback = (feedback) => {
+        setFeedbackToEdit({item:feedback, edit:true})
+    }
+    const updateFeedback = async (id, feedback) => {
+        // console.log(id, feedback);
+        const response = await fetch(`/feedback/${id}`, {
+            method:'PUT',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(feedback)
+        })
+        getFeedback();
+    }
     return <FeedbackContext.Provider value={{
         feedback,
         deleteFeedback,
-        addFeedback
+        addFeedback,
+        editFeedback,
+        updateFeedback,
+        feedbackToEdit
     }}>
         {children}
     </FeedbackContext.Provider>
