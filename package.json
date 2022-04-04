@@ -2,10 +2,12 @@
   "name": "feedapp",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5501",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "concurrently": "^7.1.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.0",
@@ -15,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"json-server --watch db.json --port 5501\" \"npm run start\""
   },
   "eslintConfig": {
     "extends": [
