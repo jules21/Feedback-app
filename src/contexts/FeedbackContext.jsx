@@ -34,14 +34,13 @@ export const FeedbackProvider = ({children}) => {
         }
     }
     const addFeedback = async (feedback) => {
-        const response = await fetch('/feedback', {
+       await fetch('/feedback', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(feedback)
         })
-        const AddedFeedback = await response.json()
         toast('Feedback added successfully',{
             position: "bottom-right",
             hideProgressBar: true,
