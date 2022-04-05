@@ -5,19 +5,29 @@ import { FeedbackProvider } from "./contexts/FeedbackContext";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FeedbackForm from "./components/FeedbackForm";
+import AboutPage from "./components/pages/AboutPage";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AboutLink from "./components/AboutLink";
 function App(){
 return (
-    <>
-        <FeedbackProvider>
+    <Router>
         <Header/>
-        <div className="container">
-            <FeedbackStats/>
-            <FeedbackForm/> 
-        <FeedbackList/>
-        </div>
-        <ToastContainer/>
-        </FeedbackProvider>
-    </>
+        <Routes>
+            <Route path="/" element={
+           <FeedbackProvider>
+                
+                <div className="container">
+                    <FeedbackStats/>
+                    <FeedbackForm/> 
+                <FeedbackList/>
+                <AboutLink/>
+                </div>
+                <ToastContainer/>
+            </FeedbackProvider>
+            } />
+            <Route path="/about" element={<AboutPage/>} />
+        </Routes>
+    </Router>
 )
 }
 export default App;
